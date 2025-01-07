@@ -42,7 +42,8 @@ public class TrabalhoAcademicoControllerTest {
                 "Autor 1",
                 "Orientador 1",
                 "Palavras-chave 1",
-                "Universidade 1"
+                "Universidade 1",
+                "asd.com"
         );
     }
 
@@ -51,7 +52,7 @@ public class TrabalhoAcademicoControllerTest {
         List<TrabalhoAcademico> trabalhos = Arrays.asList(
                 criarTrabalhoAcademico(),
                 new TrabalhoAcademico(2L, "Trabalho 2", "Monografia", 2023,
-                        "Autor 2", "Orientador 2", "Palavras-chave 2", "Universidade 2")
+                        "Autor 2", "Orientador 2", "Palavras-chave 2", "Universidade 2","asd.com")
         );
 
         // Quando o service.listarTrabalhos() for chamado, retornará nossa lista mockada

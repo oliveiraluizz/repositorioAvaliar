@@ -14,7 +14,7 @@ public class TrabalhoAcademico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 255, nullable = false)
+    @Column(length = 500, nullable = false)
     private String titulo;
 
     @Column(length = 255, nullable = false)
@@ -34,4 +34,7 @@ public class TrabalhoAcademico {
 
     @Column(length = 255, nullable = false)
     private String universidade;
+
+    @Column(length = 255, nullable = false)
+    private String link;
 }

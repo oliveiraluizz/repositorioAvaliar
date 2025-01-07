@@ -39,6 +39,7 @@ public class TrabalhoAcademicoServiceImpl implements TrabalhoAcademicoService {
                     trabalhoExistente.setOrientador(trabalho.getOrientador());
                     trabalhoExistente.setPalavrasChave(trabalho.getPalavrasChave());
                     trabalhoExistente.setUniversidade(trabalho.getUniversidade());
+                    trabalhoExistente.setLink(trabalho.getLink());
                     return repository.save(trabalhoExistente);
                 }).orElseThrow(() -> new RuntimeException("Trabalho acadêmico não encontrado!"));
     }
