@@ -1,0 +1,27 @@
+-- Certifique-se de que a extensão `pgcrypto` está habilitada para suportar a geração de UUIDs
+CREATE EXTENSION IF NOT EXISTS "pgcrypto";
+
+-- Criação da tabela `trabalhos`
+CREATE TABLE public.trabalhos (
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY, -- ID como UUID gerado automaticamente
+    titulo VARCHAR(500) NOT NULL,
+    tipo_producao VARCHAR(255) NOT NULL,
+    ano INT NOT NULL,
+    autor VARCHAR(255) NOT NULL,
+    orientador VARCHAR(255) NOT NULL,
+    palavras_chave VARCHAR(255) NOT NULL,
+    universidade VARCHAR(255) NOT NULL,
+    link VARCHAR(255) NOT NULL
+);
+
+-- Comentários para a tabela e colunas (opcional)
+COMMENT ON TABLE public.trabalhos IS 'Tabela para armazenar informações de trabalhos acadêmicos';
+COMMENT ON COLUMN public.trabalhos.id IS 'Identificador único gerado automaticamente como UUID';
+COMMENT ON COLUMN public.trabalhos.titulo IS 'Título do trabalho acadêmico';
+COMMENT ON COLUMN public.trabalhos.tipo_producao IS 'Tipo de produção acadêmica (ex: artigo, dissertação)';
+COMMENT ON COLUMN public.trabalhos.ano IS 'Ano de publicação';
+COMMENT ON COLUMN public.trabalhos.autor IS 'Nome do autor do trabalho';
+COMMENT ON COLUMN public.trabalhos.orientador IS 'Nome do orientador do trabalho';
+COMMENT ON COLUMN public.trabalhos.palavras_chave IS 'Palavras-chave associadas ao trabalho';
+COMMENT ON COLUMN public.trabalhos.universidade IS 'Universidade onde o trabalho foi produzido';
+COMMENT ON COLUMN public.trabalhos.link IS 'Link para acessar o trabalho';

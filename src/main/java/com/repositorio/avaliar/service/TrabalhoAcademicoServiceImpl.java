@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class TrabalhoAcademicoServiceImpl implements TrabalhoAcademicoService {
@@ -19,7 +20,7 @@ public class TrabalhoAcademicoServiceImpl implements TrabalhoAcademicoService {
     }
 
     @Override
-    public TrabalhoAcademico buscarTrabalhoPorId(Long id) {
+    public TrabalhoAcademico buscarTrabalhoPorId(UUID id) {
         return repository.findById(id).orElseThrow(() -> new RuntimeException("Trabalho acadêmico não encontrado!"));
     }
 
@@ -29,7 +30,7 @@ public class TrabalhoAcademicoServiceImpl implements TrabalhoAcademicoService {
     }
 
     @Override
-    public TrabalhoAcademico atualizarTrabalho(Long id, TrabalhoAcademico trabalho) {
+    public TrabalhoAcademico atualizarTrabalho(UUID id, TrabalhoAcademico trabalho) {
         return repository.findById(id)
                 .map(trabalhoExistente -> {
                     trabalhoExistente.setTitulo(trabalho.getTitulo());
@@ -45,7 +46,7 @@ public class TrabalhoAcademicoServiceImpl implements TrabalhoAcademicoService {
     }
 
     @Override
-    public void deletarTrabalho(Long id) {
+    public void deletarTrabalho(UUID id) {
         if (!repository.existsById(id)) {
             throw new RuntimeException("Trabalho acadêmico não encontrado!");
         }

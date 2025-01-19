@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/trabalhos")
@@ -22,7 +23,7 @@ public class TrabalhoAcademicoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TrabalhoAcademico> buscarTrabalhoPorId(@PathVariable Long id) {
+    public ResponseEntity<TrabalhoAcademico> buscarTrabalhoPorId(@PathVariable UUID id) {
         return ResponseEntity.ok(service.buscarTrabalhoPorId(id));
     }
 
@@ -32,12 +33,12 @@ public class TrabalhoAcademicoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TrabalhoAcademico> atualizarTrabalho(@PathVariable Long id, @RequestBody TrabalhoAcademico trabalho) {
+    public ResponseEntity<TrabalhoAcademico> atualizarTrabalho(@PathVariable UUID id, @RequestBody TrabalhoAcademico trabalho) {
         return ResponseEntity.ok(service.atualizarTrabalho(id, trabalho));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarTrabalho(@PathVariable Long id) {
+    public ResponseEntity<Void> deletarTrabalho(@PathVariable UUID id) {
         service.deletarTrabalho(id);
         return ResponseEntity.noContent().build();
     }
